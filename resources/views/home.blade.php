@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <title>Garuda Ads - Solusi Bisnis Untuk Anda!!</title>
-        <meta name="description" content="Temukan solusi terbaik dengan Garuda Ads. Dapatkan hasil maksimal dengan kelas online dan jasa kami." />
-        <meta name="keywords" content="Garuda Ads, GarudadAdds, iklan online, jasa iklan online, periklanan digital,iklan google,iklan facebook,iklan instagram,periklanan sosial media,iklan mobile,iklan video,Iklan Internet,Periklanan Online,Iklan Digital,Iklan Google Ads,Iklan Facebook Ads,Iklan Instagram Ads,Iklan Mobile Ads,Iklan Video Ads,Jasa Iklan Online Murah,Periklanan Digital Indonesia,Iklan Internet yang Efektif,Periklanan Online untuk Bisnis,Iklan Digital untuk Meningkatkan Penjualan,Iklan Online Indonesia,Periklanan Digital Jakarta,Iklan Internet Bandung,Periklanan Online Surabaya,Iklan Digital Bali" />
+        <title>{{ $title }}</title>
+        <meta name="description" content="{{ $description }}" />
+        <meta name="keywords" content="{{ $keywords }}" />
 
         <!-- Favicons -->
         <link href="" rel="icon" />
@@ -25,15 +25,24 @@
 
         <!-- Main CSS File -->
         <link href="public/assets/css/main.css" rel="stylesheet" />
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TVTNKQN4YF"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-TVTNKQN4YF');
+        </script>
+
     </head>
 
     <body class="index-page">
         <header id="header" class="header d-flex align-items-center sticky-top">
             <div class="container-fluid container-xl position-relative d-flex align-items-center">
                 <a href="/" class="logo d-flex align-items-center me-auto">
-                    <!-- Uncomment the line below if you also wish to use an image logo -->
-                    <!-- <img src="public/assets/img/logo.png" alt=""> -->
-                    <h1 class="sitename">GarudaAds.Com</h1>
+                    <h1 class="sitename">GarudaAds</h1>
                 </a>
 
                 <nav id="navmenu" class="navmenu">
@@ -48,8 +57,11 @@
                     </ul>
                     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
                 </nav>
-
-                <a class="btn-getstarted" href="#">Gabung Sekarang</a>
+                @if (session()->has('email'))
+                <a class="btn-getstarted" href="{{ route('dashboard') }}">Akun</a>
+                @else
+                <a class="btn-getstarted" href="{{ route('join-member') }}">Gabung Sekarang</a>
+                @endif
             </div>
         </header>
 
@@ -472,58 +484,16 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <div class="faq-container">
-                                <div class="faq-item faq-active" data-aos="fade-up" data-aos-delay="200">
+                                @foreach ($faqs as $faq)
+                                <div class="faq-item {{ $loop->first ? 'faq-active' : '' }}" data-aos="fade-up" data-aos-delay="200">
                                     <i class="faq-icon bi bi-question-circle"></i>
-                                    <h3>Apa itu GarudaAds.com?</h3>
+                                    <h3>{{ $faq->question }}</h3>
                                     <div class="faq-content">
-                                        <p>Garuda Ads adalah program pembelajaran online yang dirancang untuk membantu Anda meningkatkan keterampilan dan pengetahuan tentang iklan online, pemasaran digital Maupun Push Dollar.</p>
+                                        <p>{{ $faq->answer }}</p>
                                     </div>
                                     <i class="faq-toggle bi bi-chevron-right"></i>
                                 </div>
-                                <!-- End Faq item-->
-
-                                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-                                    <i class="faq-icon bi bi-question-circle"></i>
-                                    <h3>Apa saja materi yang diajarkan di kelas online Garuda Ads??</h3>
-                                    <div class="faq-content">
-                                        <p>Materi yang diajarkan di kelas online Garuda Ads meliputi: membuat iklan online yang efektif, memilih target audiens, mengatur budget iklan, dan lain-lain.</p>
-                                    </div>
-                                    <i class="faq-toggle bi bi-chevron-right"></i>
-                                </div>
-                                <!-- End Faq item-->
-
-                                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-                                    <i class="faq-icon bi bi-question-circle"></i>
-                                    <h3>Berapa lama durasi kelas online Garuda Ads??</h3>
-                                    <div class="faq-content">
-                                        <p>Durasi kelas online Garuda Ads bervariasi, mulai gratis hingga beberapa hari. Namun untuk Durasi Kelas ini tergantung paket yang kamu pilih</p>
-                                    </div>
-                                    <i class="faq-toggle bi bi-chevron-right"></i>
-                                </div>
-                                <!-- End Faq item-->
-
-                                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-                                    <i class="faq-icon bi bi-question-circle"></i>
-                                    <h3>Apa saja yang saya dapatkan setelah mengikuti kelas online Garuda Ads??</h3>
-                                    <div class="faq-content">
-                                        <p>
-                                            Setelah mengikuti kelas online Garuda Ads, Anda akan mendapatkan: pengetahuan dan keterampilan tentang GarudaAds dan pemasaran digital, dan akses ke komunitas alumni Serta Bisa membuka Cabang
-                                            Kelas Online Di KOTAMU.
-                                        </p>
-                                    </div>
-                                    <i class="faq-toggle bi bi-chevron-right"></i>
-                                </div>
-                                <!-- End Faq item-->
-
-                                <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
-                                    <i class="faq-icon bi bi-question-circle"></i>
-                                    <h3>Apa saja yang saya dapatkan setelah menggunakan jasa di Garuda Ads??</h3>
-                                    <div class="faq-content">
-                                        <p>Setelah menggunakan jasa Garuda Ads, Anda akan mendapatkan: peningkatan visibilitas dan kesuksesan bisnis Anda, laporan kampanye yang detail, dan dukungan dari tim ahli kami.</p>
-                                    </div>
-                                    <i class="faq-toggle bi bi-chevron-right"></i>
-                                </div>
-                                <!-- End Faq item-->
+                                @endforeach
                             </div>
                         </div>
                     </div>
