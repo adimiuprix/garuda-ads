@@ -24,6 +24,11 @@ class BenefitsTableSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
+                'name' => 'Tidak Update',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
                 'name' => 'Kelas Live',
                 'created_at' => now(),
                 'updated_at' => now(),

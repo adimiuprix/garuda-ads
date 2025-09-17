@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('plan_id')->constrained()->cascadeOnDelete();
             $table->foreignId('benefit_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
+            $table->unique(['plan_id', 'benefit_id']);
         });
     }
 
