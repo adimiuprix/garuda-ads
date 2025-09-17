@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Plan;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,6 +41,20 @@ class MemberController extends Controller
 
         return view('member.profile', [
             'title' => 'Profile Member',
+            'username' => $user->username,
+            'email' => $user->email,
+            'time_created' => $user->created_at,
+        ]);
+    }
+
+    public function upgrade()
+    {
+        $user = Auth::user();
+
+        $plans = Plan::all();
+
+        return view('member.upgrade', [
+            'title' => 'Upgrade Member',
             'username' => $user->username,
             'email' => $user->email,
             'time_created' => $user->created_at,

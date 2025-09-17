@@ -1,7 +1,6 @@
 <x-layouts.member_wrapper title="{{ $title }}">
 <!-- Content -->
 <div class="container-xxl flex-grow-1 container-p-y">
-
     <div class="col-md-12">
         <div class="card mb-6">
             <!-- Account -->
@@ -183,7 +182,6 @@
             </div>
         </div>
     </div>
-
 </div>
 <!-- / Content -->
 </x-layouts.member_wrapper>

@@ -22,79 +22,79 @@
             </a>
         </li>
         <li class="menu-item">
-            <a href="" class="menu-link">
+            <a href="{{ route('product.show', 'tiktok') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
                 <div data-i18n="Basic">Tiktok</div>
             </a>
         </li>
         <li class="menu-item">
-            <a href="" class="menu-link">
+            <a href="{{ route('product.show', 'shopee') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
                 <div data-i18n="Basic">Shopee</div>
             </a>
         </li>
         <li class="menu-item">
-            <a href="" class="menu-link">
+            <a href="{{ route('product.show', 'adsense') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
                 <div data-i18n="Basic">Adsense</div>
             </a>
         </li>
         <li class="menu-item">
-            <a href="" class="menu-link">
+            <a href="{{ route('product.show', 'adsterra') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
                 <div data-i18n="Basic">Adsterra</div>
             </a>
         </li>
         <li class="menu-item">
-            <a href="" class="menu-link">
+            <a href="{{ route('product.show', 'galaxion') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
                 <div data-i18n="Basic">Galaxion</div>
             </a>
         </li>
         <li class="menu-item">
-            <a href="" class="menu-link">
+            <a href="{{ route('product.show', 'monetag') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
                 <div data-i18n="Basic">Monetag</div>
             </a>
         </li>
         <li class="menu-item">
-            <a href="" class="menu-link">
+            <a href="{{ route('product.show', 'proxy-residential') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
                 <div data-i18n="Basic">Proxy residential</div>
             </a>
         </li>
         <li class="menu-item">
-            <a href="" class="menu-link">
+            <a href="{{ route('product.show', 'support') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
                 <div data-i18n="Basic">Support</div>
             </a>
         </li>
         <li class="menu-item">
-            <a href="" class="menu-link">
+            <a href="{{ route('product.show', 'grup-edukasi') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
                 <div data-i18n="Basic">Grup edukasi</div>
             </a>
         </li>
         <li class="menu-item">
-            <a href="" class="menu-link">
+            <a href="{{ route('product.show', 'live-recording') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
                 <div data-i18n="Basic">Live recording</div>
             </a>
         </li>
         <li class="menu-item">
-            <a href="" class="menu-link">
+            <a href="{{ route('product.show', 'script-agc') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
                 <div data-i18n="Basic">Script V.I.P</div>
             </a>
         </li>
         <li class="menu-item">
-            <a href="" class="menu-link">
+            <a href="{{ route('product.show', 'affiliate') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
                 <div data-i18n="Basic">Affiliate</div>
             </a>
         </li>
         <li class="menu-item">
-            <a href="" class="menu-link">
+            <a href="{{ route('product.show', 'penarikan') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
                 <div data-i18n="Basic">Penarikan</div>
             </a>

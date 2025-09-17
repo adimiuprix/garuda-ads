@@ -1,12 +1,10 @@
 <x-layouts.member_wrapper title="{{ $title }}">
 <!-- Content -->
 <div class="container-xxl flex-grow-1 container-p-y">
-
     <div class="d-flex flex-row align-items-center justify-content-between">
         <h5 class="mb-3">Dashboard</h5>
-        <a href="#" class="btn btn-primary px-4">Upgrade</a>
+        <a href="{{ route('upgrade') }}" class="btn btn-primary px-4">Upgrade</a>
     </div>
-
     @foreach($categories as $category)
     <h5 class="pb-1 mb-2">{{ $category->name }}</h5>
     <div class="row mb-12 g-6">
@@ -29,7 +27,6 @@
         @endforeach
     </div>
     @endforeach
-
 </div>
 <!-- / Content -->
 </x-layouts.member_wrapper>
