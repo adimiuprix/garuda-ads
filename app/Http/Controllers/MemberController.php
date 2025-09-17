@@ -51,13 +51,15 @@ class MemberController extends Controller
     {
         $user = Auth::user();
 
-        $plans = Plan::all();
+        $plans = Plan::with('benefits')->get();
+        $activePlanId = $user->plan_id;
 
         return view('member.upgrade', [
             'title' => 'Upgrade Member',
             'username' => $user->username,
             'email' => $user->email,
-            'time_created' => $user->created_at,
+            'plans' => $plans,
+            'active_plan' => $activePlanId,
         ]);
     }
 }

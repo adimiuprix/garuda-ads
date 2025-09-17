@@ -12,8 +12,15 @@
                 <div class="card text-center">
                     <div class="card-body">
                         <h5 class="card-title">{{ $plan->plan_name }}</h5>
-                        <p class="card-text">Benefit 1</p>
-                        <a href="" class="btn btn-primary waves-effect waves-light">Upgrade sekarang</a>
+                        @foreach ($plan->benefits as $benefit)
+                        <p class="card-text">{{ $benefit->name }}</p>
+                        @endforeach
+                        @if($active_plan == $plan->id)
+                        <a href="" class="btn btn-xs btn-primary waves-effect waves-light">Plan saat ini</a>
+                        @else
+                        <a href="" class="btn btn-xs btn-primary waves-effect waves-light">Upgrade sekarang</a>
+                        @endif
+
                     </div>
                 </div>
             </div>
