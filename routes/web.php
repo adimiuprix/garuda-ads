@@ -16,4 +16,5 @@ Route::middleware(['checksession'])->group(function () {
     Route::get('/show/{product}', [MemberController::class, 'product'])->name('product.show');
     Route::get('/profile', [MemberController::class, 'profile'])->name('profile');
     Route::get('/upgrade', [MemberController::class, 'upgrade'])->name('upgrade');
+    Route::get('/checkout', [MemberController::class, 'checkout'])->name('checkout');
 });

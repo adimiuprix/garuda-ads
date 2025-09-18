@@ -16,11 +16,10 @@
                         <p class="card-text">{{ $benefit->name }}</p>
                         @endforeach
                         @if($active_plan == $plan->id)
-                        <a href="" class="btn btn-xs btn-primary waves-effect waves-light">Plan saat ini</a>
+                        <button class="btn btn-xs btn-primary waves-effect waves-light">Plan saat ini</button>
                         @else
-                        <a href="" class="btn btn-xs btn-primary waves-effect waves-light">Upgrade sekarang</a>
+                        <a href="{{ route('checkout', ['plan_id' => $plan->id]) }}" class="btn btn-xs btn-primary waves-effect waves-light">Upgrade sekarang</a>
                         @endif
-
                     </div>
                 </div>
             </div>

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Plan;
 use App\Models\Product;
+use App\Models\Category;
+use HiFolks\RandoPhp\Randomize;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,7 +24,7 @@ class MemberController extends Controller
         ]);
     }
 
-    public function product(Request $request, $product)
+    public function product($product)
     {
         $d_prod = Product::where('slug', $product)->firstOrFail();
 
@@ -60,6 +61,27 @@ class MemberController extends Controller
             'email' => $user->email,
             'plans' => $plans,
             'active_plan' => $activePlanId,
+        ]);
+    }
+
+    public function checkout(Request $request)
+    {
+        $user = Auth::user();
+
+        $plan_id = $request->query('plan_id');
+        $plan = Plan::find($plan_id);
+
+        if (!$plan) {
+            return redirect()->route('upgrade')->with('error', 'Plan tidak ditemukan.');
+        }
+
+        $code_gen = strtoupper(Randomize::chars(10)->alphanumeric()->generate());
+
+        return view('member.checkout', [
+            'title' => 'Checkout',
+            'username' => $user->username,
+            'email' => $user->email,
+            'code_invoice' => $code_gen,
         ]);
     }
 }

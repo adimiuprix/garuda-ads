@@ -27,6 +27,7 @@
         <!-- Vendors CSS -->
         <link rel="stylesheet" href="{{ asset('public/user/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
         <!-- Page CSS -->
+        <link rel="stylesheet" href="{{ asset('public/user/vendor/css/pages/app-invoice.css') }}" />
         <!-- Helpers -->
         <script src="{{ asset('public/user/vendor/js/helpers.js') }}"></script>
         <script src="{{ asset('public/user/js/config.js') }}"></script>
@@ -49,7 +50,11 @@
                             <div class="container-xxl">
                                 <div class="footer-container d-flex align-items-center justify-content-center">
                                     <div class="text-body">
-                                        © <script>document.write(new Date().getFullYear());</script>, made with <span class="text-danger"><i class="tf-icons ri-heart-fill"></i></span> by <a href="https://themeselection.com" target="_blank" class="footer-link">ThemeSelection</a>
+                                        © <script>document.write(new Date().getFullYear());</script>, made with
+                                        <span class="text-danger">
+                                            <i class="tf-icons ri-heart-fill"></i>
+                                        </span> 
+                                        by <a href="https://themeselection.com" target="_blank" class="footer-link">ThemeSelection</a>
                                     </div>
                                 </div>
                             </div>

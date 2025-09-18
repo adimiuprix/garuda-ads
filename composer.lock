@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88970a0117c062eed55fa8728fc43833",
+    "content-hash": "2bc3bfe327fefcb23a1d466806c9ef12",
     "packages": [
         {
             "name": "brick/math",
@@ -1053,6 +1053,62 @@
                 }
             ],
             "time": "2025-02-03T10:55:03+00:00"
+        },
+        {
+            "name": "hi-folks/rando-php",
+            "version": "v0.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Hi-Folks/rando-php.git",
+                "reference": "bace3dfbbf5fa6d8535d624f1097022a184aa352"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Hi-Folks/rando-php/zipball/bace3dfbbf5fa6d8535d624f1097022a184aa352",
+                "reference": "bace3dfbbf5fa6d8535d624f1097022a184aa352",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0|^8.1|^8.2|^8.3|^8.4"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.9",
+                "phpunit/phpunit": "^8.0|^9.3",
+                "rector/rector": "^1",
+                "squizlabs/php_codesniffer": "^3.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HiFolks\\RandoPhp\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roberto Butti",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Random generator Library for PHP",
+            "homepage": "https://github.com/hi-folks/rando-php",
+            "keywords": [
+                "draw",
+                "generator",
+                "hi-folks",
+                "library",
+                "rando-php",
+                "random",
+                "sequence"
+            ],
+            "support": {
+                "issues": "https://github.com/Hi-Folks/rando-php/issues",
+                "source": "https://github.com/Hi-Folks/rando-php/tree/v0.3.1"
+            },
+            "time": "2024-11-21T21:01:01+00:00"
         },
         {
             "name": "laravel/framework",
@@ -8087,12 +8143,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.2"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }
