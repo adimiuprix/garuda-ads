@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Plan;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Invoice;
 use HiFolks\RandoPhp\Randomize;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -64,24 +65,41 @@ class MemberController extends Controller
         ]);
     }
 
-    public function checkout(Request $request)
+    public function upgradeProcess(Request $request)
     {
         $user = Auth::user();
+        $plan_id = $request->input('plan_id');
+        $randomize = strtoupper(Randomize::chars(10)->alphanumeric()->generate());
 
-        $plan_id = $request->query('plan_id');
-        $plan = Plan::find($plan_id);
+        Invoice::create([
+            'invoice_number' => $randomize,
+            'customer_id' => $user->id,
+            'plan_id' => $plan_id,
+            'invoice_date' => now(),
+            'amount' => Plan::find($plan_id)->price,
+            'issue_date' => now(),
+            'due_date' => now()->addDays(1),
+            'status' => 'pending',
+        ]);
 
-        if (!$plan) {
-            return redirect()->route('upgrade')->with('error', 'Plan tidak ditemukan.');
+        return redirect()->route('invoice', ['invoice_number' => $randomize])->with('success', 'Plan berhasil diupgrade.');
+    }
+
+    public function invoice(Request $request)
+    {
+        $user = Auth::user();
+        $invoice = $request->invoice_number;
+        $user_invoice = Invoice::where('invoice_number', $invoice)->first();
+
+        if (!$user_invoice || $user_invoice->customer_id !== $user->id) {
+            return redirect()->route('dashboard')->with('error', 'Invoice tidak ditemukan.');
         }
-
-        $code_gen = strtoupper(Randomize::chars(10)->alphanumeric()->generate());
-
-        return view('member.checkout', [
-            'title' => 'Checkout',
+    
+        return view('member.invoice', [
+            'title' => 'Invoice Member',
             'username' => $user->username,
             'email' => $user->email,
-            'code_invoice' => $code_gen,
+            'code_invoice' => $user_invoice->invoice_number,
         ]);
     }
 }

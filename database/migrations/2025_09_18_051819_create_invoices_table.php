@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('invoice_number')->unique();
             $table->unsignedBigInteger('customer_id');
-            $table->date('invoice_date');
-            $table->unsignedBigInteger('plan_id')->nullable();
             $table->foreign('plan_id')->references('id')->on('plans')->onDelete('set null');
+            $table->unsignedBigInteger('plan_id')->nullable();
+            $table->date('invoice_date');
             $table->decimal('amount', 10, 2);
             $table->date('issue_date')->nullable();
             $table->date('due_date')->nullable();

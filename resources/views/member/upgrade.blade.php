@@ -18,7 +18,10 @@
                         @if($active_plan == $plan->id)
                         <button class="btn btn-xs btn-primary waves-effect waves-light">Plan saat ini</button>
                         @else
-                        <a href="{{ route('checkout', ['plan_id' => $plan->id]) }}" class="btn btn-xs btn-primary waves-effect waves-light">Upgrade sekarang</a>
+                        <form action="{{ route('upgrade.process', ['plan_id' => $plan->id]) }}" method="post">
+                            @csrf
+                            <button class="btn btn-xs btn-primary waves-effect waves-light">Upgrade sekarang</button>
+                        </form>
                         @endif
                     </div>
                 </div>
