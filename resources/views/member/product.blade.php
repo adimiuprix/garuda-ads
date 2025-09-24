@@ -13,6 +13,7 @@
                     <span class="badge rounded-pill bg-label-info me-2">Ekonomi</span>
                     <span class="badge rounded-pill bg-label-info me-2">Bisnis</span>
                 </div>
+                @if ($user_plan == 1)
                 <div class="card">
                     <div class="card-body">
                         <div class="nav-align-top">
@@ -34,6 +35,10 @@
                         </div>
                     </div>
                 </div>
+                @else
+
+                @endif
+
             </div>
         </div>
     </div>

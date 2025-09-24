@@ -9,6 +9,7 @@ use App\Models\Invoice;
 use HiFolks\RandoPhp\Randomize;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 class MemberController extends Controller
 {
@@ -33,6 +34,7 @@ class MemberController extends Controller
             'title' => 'Detail Product',
             'product_name' => $d_prod->name,
             'description' => $d_prod->description,
+            'user_plan' => Auth::check() ? Auth::user()->plan_id : null,
             'plans' => $d_prod->plans,
         ]);
     }
@@ -89,9 +91,9 @@ class MemberController extends Controller
     {
         $user = Auth::user();
         $invoice = $request->invoice_number;
-        $user_invoice = Invoice::where('invoice_number', $invoice)->first();
+        $user_invoice = Invoice::where('invoice_number', $invoice)->with('plan')->first();
 
-        if (!$user_invoice || $user_invoice->customer_id !== $user->id) {
+        if (!$user_invoice) {
             return redirect()->route('dashboard')->with('error', 'Invoice tidak ditemukan.');
         }
     
@@ -99,7 +101,32 @@ class MemberController extends Controller
             'title' => 'Invoice Member',
             'username' => $user->username,
             'email' => $user->email,
-            'code_invoice' => $user_invoice->invoice_number,
+            'invoice' => $user_invoice,
+        ]);
+    }
+
+    public function send_invoice($invoce_code){
+        $invoice = Invoice::where('invoice_number', $invoce_code)->with('plan')->firstOrFail();
+
+        $phone = "6285226483182";
+        $message = "Saya sudah transfer untuk paket {$invoice->plan->plan_name} dengan nomor order {$invoice->invoice_number}.\n".
+                   "Mohon di cek 🙏";
+
+        $encodedMessage = urlencode($message);
+
+        $waLink = "https://api.whatsapp.com/send?phone={$phone}&text={$encodedMessage}";
+
+        return redirect()->away($waLink);
+    }
+
+    public function withdraw()
+    {
+        $user = Auth::user();
+
+        return view('member.withdraw', [
+            'title' => 'Penarikan Dana',
+            'username' => $user->username,
+            'email' => $user->email,
         ]);
     }
 }

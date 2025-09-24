@@ -94,7 +94,7 @@
             </a>
         </li>
         <li class="menu-item">
-            <a href="{{ route('product.show', 'penarikan') }}" class="menu-link">
+            <a href="{{ route('withdraw') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
                 <div data-i18n="Basic">Penarikan</div>
             </a>

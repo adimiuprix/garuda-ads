@@ -18,4 +18,6 @@ Route::middleware(['checksession'])->group(function () {
     Route::get('/upgrade', [MemberController::class, 'upgrade'])->name('upgrade');
     Route::post('/upgrade', [MemberController::class, 'upgradeProcess'])->name('upgrade.process');
     Route::get('/invoice', [MemberController::class, 'invoice'])->name('invoice');
+    Route::post('/send_invoice/{invoice}', [MemberController::class, 'send_invoice'])->name('send.invoice');
+    Route::get('/penarikan', [MemberController::class, 'withdraw'])->name('withdraw');
 });

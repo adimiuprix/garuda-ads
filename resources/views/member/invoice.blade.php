@@ -23,14 +23,14 @@
                                 <p  class="mb-1">Kota Pekalongan, Jawa Tengah</p>
                             </div>
                             <div>
-                                <h5 class="mb-6 text-nowrap">Invoice #{{ $code_invoice }}</h5>
+                                <h5 class="mb-6 text-nowrap">Invoice #{{ $invoice->invoice_number }}</h5>
                                 <div class="mb-1">
                                     <span>Tanggal Terbit:</span>
-                                    <span>April 25, 2021</span>
+                                    <span>{{ $invoice->issue_date->translatedFormat('d F Y') }}</span>
                                 </div>
                                 <div>
                                     <span>Tanggal Jatuh Tempo:</span>
-                                    <span>May 25, 2021</span>
+                                    <span>{{ $invoice->due_date->translatedFormat('d F Y') }}</span>
                                 </div>
                             </div>
                         </div>
@@ -39,11 +39,9 @@
                         <div class="d-flex justify-content-between flex-wrap row-gap-2">
                             <div class="my-1">
                                 <h6>Faktur Ke:</h6>
-                                <p class="mb-1">{{ 'nama_orang' }}</p>
-                                <p class="mb-1">{{ 'alamat_orang' }}</p>
-                                <p class="mb-1">{{ 'detail_alamat_orang' }}</p>
-                                <p class="mb-1">{{ 'nomor_telpon_orang' }}</p>
-                                <p class="mb-0">{{ 'alamat_email_orang' }}</p>
+                                <p class="mb-1">{{ 'Redo Restu Pratama' }}</p>
+                                <p class="mb-1">{{ 'Perumahan Taman Seruni, F28 Pekalongan Timur, Kota Pekalongan, Jawa Tengah' }}</p>
+                                <p class="mb-1">{{ '+6285226483182' }}</p>
                             </div>
                             <div class="my-1">
                                 <h6>Tagihan Ke:</h6>
@@ -51,15 +49,19 @@
                                     <tbody>
                                         <tr>
                                             <td class="pe-4">Total yang Harus Dibayar:</td>
-                                            <td>Rp.550.000</td>
+                                            <td>Rp {{ number_format($invoice->amount, 0, ',', '.') }}</td>
                                         </tr>
                                         <tr>
                                             <td class="pe-4">Nama bank:</td>
-                                            <td>MANDIRI BANK</td>
+                                            <td>SEA BANK</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="pe-4">Nomor tujuan:</td>
+                                            <td>901452724100</td>
                                         </tr>
                                         <tr>
                                             <td class="pe-4">Negara:</td>
-                                            <td>Konoha</td>
+                                            <td>Indonesia</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -78,10 +80,10 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Paket Ekonomi</td>
-                                    <td>Rp.550.000</td>
+                                    <td>{{ $invoice->plan->plan_name }}</td>
+                                    <td>Rp.{{ number_format($invoice->amount, 0, ',', '.') }}</td>
                                     <td>1</td>
-                                    <td>Rp.550.000</td>
+                                    <td>Rp.{{ number_format($invoice->amount, 0, ',', '.') }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -93,7 +95,7 @@
                                     <td class="align-top pe-6 ps-0 py-6">
                                         <p class="mb-1">
                                             <span class="me-2 h6">Penjual:</span>
-                                            <span>{{ 'nama_penjual' }}</span>
+                                            <span>{{ 'Redo Restu Pratama' }}</span>
                                         </p>
                                         <span>Terima kasih atas bisnis Anda</span>
                                     </td>
@@ -104,10 +106,10 @@
                                         <p class="mb-0">Total:</p>
                                     </td>
                                     <td class="text-end px-0 py-6 w-px-100">
-                                        <p class="fw-medium text-heading mb-1">Rp.550.000</p>
+                                        <p class="fw-medium text-heading mb-1">Rp.{{ number_format($invoice->amount, 0, ',', '.') }}</p>
                                         <p class="fw-medium text-heading mb-1">Rp.0.00</p>
                                         <p class="fw-medium text-heading mb-2 border-bottom pb-2">Rp.0.00</p>
-                                        <p class="fw-medium text-heading mb-0">Rp.550.000</p>
+                                        <p class="fw-medium text-heading mb-0">Rp.{{ number_format($invoice->amount, 0, ',', '.') }}</p>
                                     </td>
                                 </tr>
                             </tbody>
@@ -129,12 +131,15 @@
             <div class="col-xl-3 col-md-4 col-12 invoice-actions">
                 <div class="card">
                     <div class="card-body">
-                        <button class="btn btn-primary d-grid w-100 mb-4 waves-effect waves-light">
-                            <span class="d-flex align-items-center justify-content-center text-nowrap">
-                                <i class="icon-base ri ri-send-plane-line icon-16px scaleX-n1-rtl me-1_5"></i>
-                                Kirim Invoice
-                            </span>
-                        </button>
+                        <form action="{{ route('send.invoice', $invoice->invoice_number) }}" method="post">
+                            @csrf
+                            <button class="btn btn-primary d-grid w-100 mb-4 waves-effect waves-light">
+                                <span class="d-flex align-items-center justify-content-center text-nowrap">
+                                    <i class="icon-base ri ri-send-plane-line icon-16px scaleX-n1-rtl me-1_5"></i>
+                                    Kirim Invoice
+                                </span>
+                            </button>
+                        </form>
                         <button class="btn btn-outline-secondary d-grid w-100 mb-4 waves-effect">
                             Unduh
                         </button>
