@@ -35,4 +35,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    public function plan(){
+        return $this->belongsTo(Plan::class);
+    }
+
+    public function hasBenefit($benefitName){
+        return $this->plan?->benefits->contains('name', $benefitName);
+    }
 }

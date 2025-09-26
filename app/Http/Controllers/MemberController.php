@@ -15,7 +15,7 @@ class MemberController extends Controller
 {
     public function dashboard()
     {
-        $user = Auth::user();
+        $user = Auth::user()->load('plan.benefits');
 
         $categories = Category::with(['products.plans'])->get();
 
@@ -28,6 +28,10 @@ class MemberController extends Controller
 
     public function product($product)
     {
+        // Ambil user beserta relasi plan dan benefits sekaligus (biar hemat query)
+        $user = Auth::user()->load('plan.benefits');    
+        $is_benefit = $user->hasBenefit('Kelas Live');
+
         $d_prod = Product::where('slug', $product)->firstOrFail();
 
         return view('member.product', [
@@ -36,6 +40,7 @@ class MemberController extends Controller
             'description' => $d_prod->description,
             'user_plan' => Auth::check() ? Auth::user()->plan_id : null,
             'plans' => $d_prod->plans,
+            'is_benefit' => $is_benefit,
         ]);
     }
 
