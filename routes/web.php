@@ -6,6 +6,10 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\SigninController;
 use App\Http\Controllers\JoinMemberController;
 
+Route::fallback(function () {
+    return response()->view('errors.404', [], 404);
+});
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::match(['get', 'post'], '/join', [JoinMemberController::class, 'index'])->middleware('guest')->name('join-member');
 Route::match(['get', 'post'], '/signin', [SigninController::class, 'index'])->middleware('guest')->name('signin');
