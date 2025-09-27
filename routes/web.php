@@ -25,3 +25,5 @@ Route::middleware(['checksession'])->group(function () {
     Route::post('/send_invoice/{invoice}', [MemberController::class, 'send_invoice'])->name('send.invoice');
     Route::get('/penarikan', [MemberController::class, 'withdraw'])->name('withdraw');
 });
+
+require __DIR__.'/admin.php';
