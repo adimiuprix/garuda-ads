@@ -36,7 +36,7 @@
         <!-- Layout wrapper -->
         <div class="layout-wrapper layout-content-navbar">
             <div class="layout-container">
-                <x-aside />
+                <x-admin-aside />
                 <!-- Layout container -->
                 <div class="layout-page">
                     <x-navbar />
