@@ -49,12 +49,9 @@
                         <footer class="content-footer footer bg-footer-theme">
                             <div class="container-xxl">
                                 <div class="footer-container d-flex align-items-center justify-content-center">
-                                    <div class="text-body">
-                                        © <script>document.write(new Date().getFullYear());</script>, made with
-                                        <span class="text-danger">
-                                            <i class="tf-icons ri-heart-fill"></i>
-                                        </span> 
-                                        by <a href="https://themeselection.com" target="_blank" class="footer-link">ThemeSelection</a>
+                                    <div class="text-body text-center">
+                                        © <script>document.write(new Date().getFullYear());</script>, Copyright Garuda Ads All Rights Reserved </br>
+                                        Designed by <a href="https://www.tiktok.com/@garuda.ads" target="_blank" class="footer-link">Garuda Ads</a>
                                     </div>
                                 </div>
                             </div>
