@@ -26,7 +26,7 @@
             </a>
         </li>
         <li class="menu-item">
-            <a href="" class="menu-link">
+            <a href="{{ route('admin.member') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
                 <div>Member</div>
             </a>
