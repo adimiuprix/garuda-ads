@@ -1,8 +1,5 @@
 <x-layouts.member_wrapper title="{{ $title }}">
     <div class="container-xxl flex-grow-1 container-p-y"></div>
-        <div class="d-flex flex-row align-items-center justify-content-between">
-            <h5 class="mb-3">Penarikan Saldo</h5>
-        </div>
         <div class="text-center">
             <h4 class="mb-3 mx-2">Ajukan Penarikan Saldo Anda</h4>
         </div>

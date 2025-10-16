@@ -19,7 +19,7 @@
                                     </span>
                                     <span class="mb-0 app-brand-text fw-semibold">Garuda ads</span>
                                 </div>
-                                <p class="mb-1">Perumahan Taman Seruni, F28 Pekalongan Timur</p>
+                                <p class="mb-1">Pekalongan Timur</p>
                                 <p  class="mb-1">Kota Pekalongan, Jawa Tengah</p>
                             </div>
                             <div>
@@ -40,7 +40,7 @@
                             <div class="my-1">
                                 <h6>Faktur Ke:</h6>
                                 <p class="mb-1">{{ 'Redo Restu Pratama' }}</p>
-                                <p class="mb-1">{{ 'Perumahan Taman Seruni, F28 Pekalongan Timur, Kota Pekalongan, Jawa Tengah' }}</p>
+                                <p class="mb-1">{{ 'Pekalongan, Jawa Tengah' }}</p>
                                 <p class="mb-1">{{ '+6285226483182' }}</p>
                             </div>
                             <div class="my-1">

@@ -124,6 +124,12 @@ class MemberController extends Controller
         return redirect()->away($waLink);
     }
 
+    public function affiliate(){
+        return view('member.affiliate', [
+            'title' => 'Affiliasi'
+        ]);
+    }
+
     public function withdraw()
     {
         $user = Auth::user();

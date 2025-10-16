@@ -50,12 +50,6 @@
             </a>
         </li>
         <li class="menu-item">
-            <a href="{{ route('product.show', 'adsterra') }}" class="menu-link">
-                <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
-                <div>Adsterra</div>
-            </a>
-        </li>
-        <li class="menu-item">
             <a href="{{ route('product.show', 'galaxion') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
                 <div>Galaxion</div>
@@ -98,7 +92,7 @@
             </a>
         </li>
         <li class="menu-item">
-            <a href="{{ route('product.show', 'affiliate') }}" class="menu-link">
+            <a href="{{ route('affiliate') }}" class="menu-link">
                 <i class="menu-icon tf-icons ri-bank-card-2-line"></i>
                 <div>Affiliate</div>
             </a>
